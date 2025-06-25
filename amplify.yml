@@ -12,8 +12,7 @@ frontend:
     build:
       commands:
         # Navegamos de nuevo para asegurar que el contexto del directorio es correcto.
-        - cd frontend
-        - ./node_modules/.bin/ng build
+        - cd frontend && ./node_modules/.bin/ng build
   artifacts:
     # La ruta base ahora debe ser especificada desde la raíz del repositorio.
     baseDirectory: frontend/dist/utils-app
