@@ -9,6 +9,7 @@ frontend:
         - npm install @angular/cli
     build:
       commands:
+        - cd frontend
         - npx ng build
   artifacts:
     baseDirectory: dist/utils-app
