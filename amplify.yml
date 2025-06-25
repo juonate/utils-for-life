@@ -1,24 +1,25 @@
 version: 1
 frontend:
-  appRoot: frontend
   phases:
     preBuild:
       commands:
         # Se indica al entorno que use Node.js 20, que es requerido por Angular 20.
         - nvm use 20
-        # Se usa npm ci para una instalación limpia y rápida desde el lockfile.
-        - npm ci
+        # Navegamos explícitamente a la carpeta del frontend.
+        - cd frontend
+        # Se usa npm install para asegurar la instalación de todas las dependencias, incluidas las de desarrollo.
+        - npm install
     build:
       commands:
-        # Se instala explícitamente el Angular CLI y luego se ejecuta el build.
-        - npm install @angular/cli
+        # Navegamos de nuevo para asegurar que el contexto del directorio es correcto.
+        - cd frontend
         - ./node_modules/.bin/ng build
   artifacts:
-    # La ruta es ahora relativa al 'appRoot'
-    baseDirectory: dist/utils-app
+    # La ruta base ahora debe ser especificada desde la raíz del repositorio.
+    baseDirectory: frontend/dist/utils-app
     files:
       - '**/*'
   cache:
-    # La ruta es ahora relativa al 'appRoot'
+    # La ruta del caché también debe ser especificada desde la raíz.
     paths:
-      - node_modules/**/*
+      - frontend/node_modules/**/*
