@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd frontend
+        - nvm use 20
+        - npm ci
+        - npm install @angular/cli
+    build:
+      commands:
+        - npx ng build
+  artifacts:
+    baseDirectory: dist/utils-app
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
