@@ -1,0 +1,23 @@
+# .gitignore (raíz)
+
+# Java & Maven
+target/
+*.jar
+*.war
+.idea/
+*.iml
+.settings/
+.classpath
+.project
+
+# Node & Angular
+node_modules/
+dist/
+.angular/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
