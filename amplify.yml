@@ -3,8 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd frontend
         - nvm use 20
+        - cd frontend
         - npm ci
         - npm install @angular/cli
     build:
@@ -12,9 +12,9 @@ frontend:
         - cd frontend
         - npx ng build
   artifacts:
-    baseDirectory: dist/utils-app
+    baseDirectory: frontend/dist/utils-app
     files:
       - "**/*"
   cache:
     paths:
-      - node_modules/**/*
+      - frontend/node_modules/**/*
