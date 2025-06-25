@@ -6,8 +6,8 @@ frontend:
       commands:
         # Se indica al entorno que use Node.js 20, que es requerido por Angular 20.
         - nvm use 20
-        # Se usa npm ci para una instalación limpia y rápida desde el lockfile.
-        - npm ci
+        # Se reemplaza 'npm ci' por 'npm install' para asegurar la instalación de devDependencies.
+        - npm install
     build:
       commands:
         # Se ejecuta el build de Angular. npx encontrará el binario en node_modules.
