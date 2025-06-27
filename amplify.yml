@@ -1,24 +1,24 @@
 version: 1
-frontend:
-  appRoot: frontend
-  phases:
-    preBuild:
-      commands:
-        # Se indica al entorno que use Node.js 20, que es requerido por Angular 20.
-        - nvm use 20
-        # Se usa npm install con la bandera --include=dev para forzar la instalación de las devDependencies.
-        - npm install --include=dev
-    build:
-      commands:
-        # Se ejecuta el binario de Angular CLI directamente desde la carpeta local node_modules.
-        # Este es el método más robusto para asegurar que se usa el CLI del proyecto.
-        - ./node_modules/.bin/ng build
-  artifacts:
-    # La ruta es ahora relativa al 'appRoot'.
-    baseDirectory: dist/utils-app
-    files:
-      - '**/*'
-  cache:
-    # La ruta es ahora relativa al 'appRoot'.
-    paths:
-      - node_modules/**/*
+applications:
+  - appRoot: frontend
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            # Se indica al entorno que use Node.js 20, que es requerido por Angular 20.
+            - nvm use 20
+            # Se usa npm ci para una instalación limpia y rápida desde el lockfile.
+            - npm ci
+        build:
+          commands:
+            # Se ejecuta el build de Angular. npx encontrará el binario en node_modules.
+            - npx ng build
+      artifacts:
+        # La ruta es ahora relativa al 'appRoot'.
+        baseDirectory: dist/utils-app
+        files:
+          - '**/*'
+      cache:
+        # La ruta es ahora relativa al 'appRoot'.
+        paths:
+          - node_modules/**/*
