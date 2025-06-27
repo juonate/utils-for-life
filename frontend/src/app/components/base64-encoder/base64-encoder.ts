@@ -1,7 +1,4 @@
-/* src/app/components/base64-decoder/base64-decoder.component.ts */
-
 import { Component } from '@angular/core';
-
 // Importaciones necesarias para el componente standalone
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,32 +10,27 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   standalone: false,
-  selector: 'app-base64-decoder',
-  templateUrl: './base64-decoder.html',
-  styleUrls: ['./base64-decoder.scss']
+  selector: 'app-base64-encoder',
+  templateUrl: './base64-encoder.html',
+  styleUrl: './base64-encoder.scss'
 })
-export class Base64DecoderComponent {
+export class Base64Encoder {
 
   encodedText: string = 'SG9sYSBtdW5kbyEh';
   decodedText: string = '';
   errorMessage: string | null = null;
-  
+
   constructor() {
-    this.decode();
+    this.encode();
   }
 
-  decode(): void {
+  encode(): void {
     this.errorMessage = null;
-    if (!this.encodedText || this.encodedText.trim() === '') {
-      this.decodedText = '';
+    if (!this.decodedText || this.decodedText.trim() === '') {
+      this.encodedText = '';
       return;
     }
-    try {
-      this.decodedText = atob(this.encodedText);
-    } catch (error) {
-      this.decodedText = '';
-      this.errorMessage = 'El texto introducido no es un string Base64 válido.';
-    }
+    this.encodedText = btoa(this.decodedText);
   }
 
   clear(): void {
@@ -46,4 +38,5 @@ export class Base64DecoderComponent {
     this.decodedText = '';
     this.errorMessage = null;
   }
+
 }

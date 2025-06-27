@@ -2,7 +2,7 @@
 
 <div class="container mat-app-background">
   <mat-card class="decoder-card">
-    <mat-card-title>Decodificador Base64</mat-card-title>
+    <mat-card-title>Códificador Base64</mat-card-title>
     <mat-card-subtitle>Pega un string en Base64 para ver su contenido o escribe texto para codificarlo.</mat-card-subtitle>
 
     <mat-card-content>
@@ -36,9 +36,13 @@
     </mat-card-content>
 
     <mat-card-actions class="actions-bar">
-      <button mat-flat-button color="primary" (click)="decode()">
+      <button mat-flat-button color="primary" (click)="encode()">
         <mat-icon>arrow_downward</mat-icon>
         Decodificar
+      </button>
+       <button mat-flat-button color="accent" (click)="encode()">
+        <mat-icon>arrow_upward</mat-icon>
+        Codificar
       </button>
       <button mat-stroked-button color="warn" (click)="clear()">
         <mat-icon>delete_outline</mat-icon>

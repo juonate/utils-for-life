@@ -1,0 +1,40 @@
+.tool-card {
+  width: 100%;
+}
+
+.text-areas-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.text-field {
+  flex: 1;
+}
+
+.actions-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+  .text-areas-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
