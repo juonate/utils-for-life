@@ -15,7 +15,7 @@ applications:
             - npx ng build
       artifacts:
         # La ruta es ahora relativa al 'appRoot'.
-        baseDirectory: dist/utils-app
+        baseDirectory: dist/utils-app/browser
         files:
           - '**/*'
       cache:
