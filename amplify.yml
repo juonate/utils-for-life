@@ -6,8 +6,8 @@ frontend:
       commands:
         # Se indica al entorno que use Node.js 20, que es requerido por Angular 20.
         - nvm use 20
-        # Se usa npm install para asegurar la instalación de todas las dependencias, incluidas las de desarrollo.
-        - npm install
+        # Se usa npm install con la bandera --include=dev para forzar la instalación de las devDependencies.
+        - npm install --include=dev
     build:
       commands:
         # Se ejecuta el binario de Angular CLI directamente desde la carpeta local node_modules.
