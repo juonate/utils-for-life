@@ -1,0 +1,53 @@
+<!-- src/app/components/base64-decoder/base64-decoder.component.html -->
+
+<div class="container mat-app-background">
+  <mat-card class="decoder-card">
+    <mat-card-title>Decodificador Base64</mat-card-title>
+    <mat-card-subtitle>Pega un string en Base64 para ver su contenido o escribe texto para codificarlo.</mat-card-subtitle>
+
+    <mat-card-content>
+      <!-- Mensaje de error, solo se muestra si errorMessage tiene un valor -->
+      @if (errorMessage) {
+        <div class="error-message">
+            <mat-icon>error_outline</mat-icon>
+            <span>{{ errorMessage }}</span>
+        </div>
+      }
+
+      <div class="text-areas-container">
+        <!-- Textarea para el input Base64 -->
+        <mat-form-field appearance="outline" class="text-field">
+          <mat-label>Texto codificado (Base64)</mat-label>
+          <textarea matInput
+                    [(ngModel)]="encodedText"
+                    rows="8"
+                    placeholder="Ej: S2F0c3VuZSBNaWt1"></textarea>
+        </mat-form-field>
+
+        <!-- Textarea para el output decodificado -->
+        <mat-form-field appearance="outline" class="text-field">
+          <mat-label>Texto decodificado (UTF-8)</mat-label>
+          <textarea matInput
+                    [(ngModel)]="decodedText"
+                    rows="8"
+                    placeholder="El resultado aparecerá aquí..."></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions class="actions-bar">
+      <button mat-flat-button color="primary" (click)="decode()">
+        <mat-icon>arrow_downward</mat-icon>
+        Decodificar
+      </button>
+       <button mat-flat-button color="accent" (click)="encode()">
+        <mat-icon>arrow_upward</mat-icon>
+        Codificar
+      </button>
+      <button mat-stroked-button color="warn" (click)="clear()">
+        <mat-icon>delete_outline</mat-icon>
+        Limpiar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
