@@ -1,17 +1,5 @@
-/* src/app/components/base64-decoder/base64-decoder.component.scss */
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-  height: 100vh;
-  box-sizing: border-box;
-}
-
-.decoder-card {
+.tool-card {
   width: 100%;
-  max-width: 900px;
 }
 
 .text-areas-container {
@@ -21,7 +9,7 @@
 }
 
 .text-field {
-  flex: 1; /* Para que ambos textareas ocupen el mismo espacio */
+  flex: 1;
 }
 
 .actions-bar {
@@ -29,7 +17,7 @@
   justify-content: center;
   gap: 1rem;
   padding: 1rem 0;
-  flex-wrap: wrap; /* Para que los botones se ajusten en pantallas pequeñas */
+  flex-wrap: wrap;
 }
 
 .error-message {
@@ -44,19 +32,9 @@
   border: 1px solid #f5c6cb;
 }
 
-// Estilos para pantallas más pequeñas
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-    align-items: flex-start;
-  }
-
   .text-areas-container {
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .actions-bar {
-    flex-direction: column;
   }
 }
